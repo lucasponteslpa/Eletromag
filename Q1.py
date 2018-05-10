@@ -47,18 +47,20 @@ fig, ax = plt.subplots()
 #resultado analitico realizado pelo scipy
 matplotlib.rcParams['axes.unicode_minus'] = False
 res_analitc = integrate.nquad(f,[[-0.1,0.1],[-0.1,0.1]]) 
-res[0] = res_analitc[0]
+res[0] = ro*1/(4*np.pi*scc.epsilon_0)*res_analitc[0]
+print res[0]
 #resultado para N = 0.1
 res[3] = potencial_total(N,P,ro,a)
+print res[3]
 
 #resultado para N = 0.05
 N2 = 0.05
 res[2] = potencial_total(N2,P,ro,a)
-
+print res[2]
 #resultado para N = 0.0001
 N3 = 0.0001
 res[1] = potencial_total(N3,P,ro,a)
-
+print res[1]
 #plotando pontos
 x = np.array([0.0,N3,N2,N],dtype=float)
 y = np.array(res,dtype=float) 
